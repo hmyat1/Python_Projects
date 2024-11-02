@@ -1,6 +1,6 @@
 import random
 
-# French to English words
+# List of French to English words with their translations
 words = [
     {"french": "le", "english": "the"},
     {"french": "de", "english": "of/from"},
@@ -25,27 +25,31 @@ words = [
 ]
 
 def quiz_user(words):
-    """Quiz the user."""
-    random.shuffle(words)
-    score = 0
+    """Quiz the user on French to English translations."""
+    random.shuffle(words)  # Shuffle the word list for randomness
+    score = 0  # Initialize the score
 
     for word in words:
+        # Ask the user for the English translation of the French word
         print(f"What is '{word['french']}' in English?")
-        user_answer = input("Your answer: ").strip().lower()
-        correct_answer = word['english'].lower()
+        user_answer = input("Your answer: ").strip().lower()  # Get user input
+        correct_answer = word['english'].lower()  # Get the correct answer
 
+        # Check if the user's answer is correct
         if user_answer == correct_answer:
-            print("Correct!\n")
-            score += 1
+            print("Correct!\n")  # Notify user of a correct answer
+            score += 1  # Increment score
         else:
-            print(f"Wrong! It's '{word['english']}'.\n")
+            print(f"Wrong! It's '{word['english']}'.\n")  # Notify user of the correct answer
 
+    # Display the final score after the quiz
     print(f"Quiz complete! Score: {score}/{len(words)}")
 
 def main():
-    print("Welcome to the Language Learning App!")
-    input("Press Enter to start...")
-    quiz_user(words)
+    """Main function to start the quiz application."""
+    print("Welcome to the Language Learning App!")  # Welcome message
+    input("Press Enter to start...")  # Wait for user to start the quiz
+    quiz_user(words)  # Start the quiz
 
 if __name__ == "__main__":
-    main()
+    main()  # Run the main function
